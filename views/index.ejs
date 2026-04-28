@@ -26,7 +26,7 @@
           <button type="submit">Search</button>
         </form>
       </section>
- <% if(locals.city){ %>
+ <% if(typeof city !== "undefined"){ %>
       <section class="weather-result">
         <h2>Weather forecast</h2>
 
@@ -48,7 +48,7 @@
         
       </section>
 <% } %>
-<% if (locals.forecast) { %>
+<% if (typeof forecast !== "undefined") { %>
       <section class="forecast">
          
         <h2>Daily Forecast</h2>
