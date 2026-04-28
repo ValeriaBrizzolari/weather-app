@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <main class="weather-app">
+      <section class="hero">
+        <h1>Weather App</h1>
+        <p>Search for a location and check the current weather.</p>
+
+        <form action="/weather" method="POST" class="search-form">
+          <label for="city">Enter a city</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Example: London"
+            required
+          />
+
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section class="weather-result">
+         <% if(locals.city){ %>
+        <h2>Weather forecast</h2>
+
+        <div class="weather-card">
+         
+          <img
+  class="main-weather-icon"
+  src="https://openweathermap.org/img/wn/<%= icon %>@4x.png"
+  alt="<%= description %>"
+/>
+          <h3><%= city %></h3>
+
+          <p>Temperature: <%= temp %>°C</p>
+          <p>Feels like: <%= feelsLike %>°C</p>
+          <p>Condition: <%= description %></p>
+          <p>Humidity: <%= humidity %>%</p>
+          <p>Wind speed: <%= windSpeed %> m/s</p>
+        </div>
+        <% } %>
+      </section>
+
+      <section class="forecast">
+         <% if (locals.forecast) { %>
+        <h2>Daily Forecast</h2>
+       <div class="forecast-list">
+        <% forecast.forEach((day) => { %>
+          <article class="forecast-card">
+            <h3> <%= new Date(day.dt_txt).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "short" }) %> </h3>
+            <img
+  class="weather-icon"
+  src="https://openweathermap.org/img/wn/<%= day.weather[0].icon %>@2x.png"
+  alt="<%= day.weather[0].description %>"
+/>
+            <p>Temp: <%= day.main.temp %> °C</p>
+            <p>Condition: <%= day.weather[0].description %></p>
+          </article>
+          <%  }) %>
+        </div>
+       <% } %>
+      </section>
+    </main>
+  </body>
+</html>
