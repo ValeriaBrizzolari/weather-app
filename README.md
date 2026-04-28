@@ -5,6 +5,13 @@ Users can search for a city and view current weather conditions along with a sho
 
 ---
 
+## 🌐 Live Demo
+
+View the live project here:  
+https://your-render-link.onrender.com
+
+---
+
 ## 🚀 Features
 
 * Search weather by city name
@@ -36,7 +43,7 @@ Users can search for a city and view current weather conditions along with a sho
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/weather-app.git
+git clone https://github.com/ValeriaBrizzolari/weather-app.git
 cd weather-app
 ```
 
