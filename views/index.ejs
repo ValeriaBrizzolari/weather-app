@@ -26,9 +26,8 @@
           <button type="submit">Search</button>
         </form>
       </section>
-
+ <% if(locals.city){ %>
       <section class="weather-result">
-         <% if(locals.city){ %>
         <h2>Weather forecast</h2>
 
         <div class="weather-card">
@@ -46,11 +45,12 @@
           <p>Humidity: <%= humidity %>%</p>
           <p>Wind speed: <%= windSpeed %> m/s</p>
         </div>
-        <% } %>
+        
       </section>
-
+<% } %>
+<% if (locals.forecast) { %>
       <section class="forecast">
-         <% if (locals.forecast) { %>
+         
         <h2>Daily Forecast</h2>
        <div class="forecast-list">
         <% forecast.forEach((day) => { %>
@@ -66,8 +66,9 @@
           </article>
           <%  }) %>
         </div>
-       <% } %>
+       
       </section>
+      <% } %>
     </main>
   </body>
 </html>

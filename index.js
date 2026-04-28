@@ -5,7 +5,7 @@ dotenv.config();
 
 const API_KEY = process.env.API_KEY;
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const CURRENT_URL = "https://api.openweathermap.org/data/2.5/weather";
 const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
 
